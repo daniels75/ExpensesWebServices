@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class PaymentService {
 
 	@GET
-	@Path("/mkyong")
+	@Path("/save")
 	public Response savePayment() {
 
 		String result = "SomeTest";

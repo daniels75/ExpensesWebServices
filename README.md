@@ -23,4 +23,9 @@ To get started, please complete the following steps:
    http://localhost:8080/services/api/people.json
    http://localhost:8080/services/api/users.json
    
-
+Another rest services:
+http://localhost:8080/rest/payment/save
+http://localhost:8080/rest/myuser
+http://localhost:8080/rest/myuser/numberOfUsers
+http://localhost:8080/rest/myuser/people
+http://localhost:8080/rest/myuser/people/1
