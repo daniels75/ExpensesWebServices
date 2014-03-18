@@ -12,6 +12,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.appfuse.model.User;
+import org.appfuse.service.UserManager;
 import org.appfuse.tutorial.model.MyUser;
 import org.appfuse.tutorial.model.Person;
 import org.appfuse.tutorial.service.PersonManager;
@@ -26,11 +28,13 @@ public class UserRestService {
 
     private final MyUserService userService;
     private final PersonManager personManager;
+    private final UserManager userManager;
 
     @Autowired
-    public UserRestService(MyUserService userService, PersonManager personManager) {
+    public UserRestService(MyUserService userService, PersonManager personManager, UserManager userManager) {
         this.userService = userService;
         this.personManager = personManager;
+        this.userManager = userManager;
     }
 
 
@@ -61,6 +65,27 @@ public class UserRestService {
     @Produces(MediaType.APPLICATION_JSON)
     public Person getPeopleById(@PathParam("id") long id) {
         return personManager.get(id);
+    }
+    
+    @GET
+    @Path("manager")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<User> getUsers() {
+        return userManager.getUsers();
+    }
+    
+    @GET
+    @Path("manager/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public User getUserById(@PathParam("id") long id) {
+        return userManager.get(id);
+    }
+    
+    @GET
+    @Path("manager/name/{name}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public User getUserByName(@PathParam("name") String name ) {
+        return userManager.getUserByUsername(name);
     }
     
     

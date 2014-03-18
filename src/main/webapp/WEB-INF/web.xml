@@ -31,7 +31,7 @@
             classpath*:/applicationContext.xml
             /WEB-INF/applicationContext*.xml
             /WEB-INF/cxf-servlet.xml
-            /WEB-INF/security.xml
+<!--             /WEB-INF/security.xml -->
         </param-value>
     </context-param>
 
@@ -87,14 +87,16 @@
             <param-value>-1</param-value>
         </init-param>
     </filter>
-    <filter>
-        <filter-name>securityFilter</filter-name>
-        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
-        <init-param>
-            <param-name>targetBeanName</param-name>
-            <param-value>springSecurityFilterChain</param-value>
-        </init-param>
-    </filter>
+    
+<!--     <filter> -->
+<!--         <filter-name>securityFilter</filter-name> -->
+<!--         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class> -->
+<!--         <init-param> -->
+<!--             <param-name>targetBeanName</param-name> -->
+<!--             <param-value>springSecurityFilterChain</param-value> -->
+<!--         </init-param> -->
+<!--     </filter> -->
+    
     <filter>
         <filter-name>sitemesh</filter-name>
         <filter-class>com.opensymphony.module.sitemesh.filter.PageFilter</filter-class>
@@ -146,13 +148,13 @@
         <dispatcher>REQUEST</dispatcher>
         <dispatcher>FORWARD</dispatcher>
     </filter-mapping>
-    <filter-mapping>
-        <filter-name>securityFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-        <dispatcher>REQUEST</dispatcher>
-        <dispatcher>FORWARD</dispatcher>
-        <dispatcher>INCLUDE</dispatcher>
-    </filter-mapping>
+<!--     <filter-mapping> -->
+<!--         <filter-name>securityFilter</filter-name> -->
+<!--         <url-pattern>/*</url-pattern> -->
+<!--         <dispatcher>REQUEST</dispatcher> -->
+<!--         <dispatcher>FORWARD</dispatcher> -->
+<!--         <dispatcher>INCLUDE</dispatcher> -->
+<!--     </filter-mapping> -->
     <filter-mapping>
         <filter-name>struts-prepare</filter-name>
         <url-pattern>/*</url-pattern>

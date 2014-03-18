@@ -29,3 +29,8 @@ http://localhost:8080/rest/myuser
 http://localhost:8080/rest/myuser/numberOfUsers
 http://localhost:8080/rest/myuser/people
 http://localhost:8080/rest/myuser/people/1
+
+http://localhost:8080/rest/myuser/manager
+http://localhost:8080/rest/myuser/manager/-2
+http://localhost:8080/rest/myuser/manager/name/user
+http://localhost:8080/rest/myuser/manager/name/admin
