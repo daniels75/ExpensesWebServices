@@ -24,6 +24,7 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
+        	classpath:applicationContextRest.xml
             classpath:/applicationContext-resources.xml
             classpath:/applicationContext-dao.xml
             classpath:/applicationContext-service.xml
@@ -202,6 +203,38 @@
         <listener-class>net.sf.navigator.menu.MenuContextListener</listener-class>
     </listener>
 
+
+	<servlet>
+		<servlet-name>jersey-serlvet</servlet-name>
+		<servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>
+		<init-param>
+			<param-name>com.sun.jersey.config.property.packages</param-name>
+			<param-value>org.appfuse.tutorial.webapp.rest</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>jersey-serlvet</servlet-name>
+		<url-pattern>/rest/*</url-pattern>
+	</servlet-mapping>
+
+
+<!--     <servlet> -->
+<!--         <servlet-name>SpringApplication</servlet-name> -->
+<!--         <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class> -->
+<!--         <init-param> -->
+<!--             <param-name>javax.ws.rs.Application</param-name> -->
+<!--             <param-value>org.appfuse.tutorial.webapp.rest.PaymentService</param-value> -->
+<!--         </init-param> -->
+<!--         <load-on-startup>1</load-on-startup> -->
+<!--     </servlet> -->
+<!--     <servlet-mapping> -->
+<!--         <servlet-name>SpringApplication</servlet-name> -->
+<!--         <url-pattern>/rest/*</url-pattern> -->
+<!--     </servlet-mapping> -->
+
+
     <servlet>
         <servlet-name>dwr-invoker</servlet-name>
         <servlet-class>org.directwebremoting.servlet.DwrServlet</servlet-class>
@@ -225,6 +258,9 @@
         <servlet-name>CXFServlet</servlet-name>
         <url-pattern>/services/*</url-pattern>
     </servlet-mapping>
+
+
+
 
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>

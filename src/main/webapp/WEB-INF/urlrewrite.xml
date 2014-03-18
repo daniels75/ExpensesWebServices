@@ -62,11 +62,7 @@
         <to>/logout.jsp</to>
     </rule>
 
-    <!-- Struts -->
-    <rule match-type="regex">
-        <from>^([^?]*)/([^?/\.]+)(\?.*)?$</from>
-        <to last="true">$1/$2.action$3</to>
-    </rule>
+
     <outbound-rule match-type="regex">
         <from>^(.*)\.action(\?.*)?$</from>
         <to last="false">$1$2</to>
